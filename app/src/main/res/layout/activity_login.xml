@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/ll_username"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
+    <!-- 头部 -->
+    <include
+        android:id="@+id/tb_header"
+        layout="@layout/titlebar" />
+
+    <!-- 内容 -->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@drawable/sbg1"
+        android:layout_below="@+id/tb_header">
 
-        <TextView
-            android:text="用户名："
-            android:layout_marginLeft="10dp"
-            android:gravity="right"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/et_username"
-            android:layout_marginRight="10dp"
+        <LinearLayout
+            android:id="@+id/ll_username"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/ll_password"
-        android:layout_below="@+id/ll_username"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="right"
+                android:text="用户名：" />
 
-        <TextView
-            android:text="密码："
-            android:layout_marginLeft="10dp"
-            android:gravity="right"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_marginRight="10dp"
+        <LinearLayout
+            android:id="@+id/ll_password"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_username"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_below="@+id/ll_password"
-        android:text="登入"
-        android:layout_marginTop="80dp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="150dp"
-        android:layout_height="40dp" />
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:gravity="right"
+                android:text="密码：" />
 
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ll_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:text="登入" />
+
+    </RelativeLayout>
 </RelativeLayout>

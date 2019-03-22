@@ -87,7 +87,8 @@ public class LoginActivity extends AppCompatActivity {
     private void processData(String json) {
         LoginBean bean = parsedJson(json);
         if(bean != null){
-            if (bean.getRespCode() == "success") {
+            // 注意：不能用 == 要用equals
+            if (bean.getRespCode().equals("success")) {
                 // 存用户信息
                 String uid = String.valueOf(bean.getContent().getId());
                 CacheUtils.saveString(this, "uidKey", uid);
@@ -96,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
 
                 Toast.makeText(this, "登录成功！", Toast.LENGTH_SHORT).show();
-                finish();
+
             }
             else {
                 Toast.makeText(this, bean.getRespMsg(), Toast.LENGTH_SHORT).show();
