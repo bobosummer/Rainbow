@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <!-- 头部 -->
-    <include android:id="@+id/tb_header" layout="@layout/titlebar" />
+    <include android:id="@+id/tb_header" layout="@layout/header" />
 
     <!-- 内容 -->
     <FrameLayout

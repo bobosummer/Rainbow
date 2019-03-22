@@ -6,7 +6,7 @@
     <!-- 头部 -->
     <include
         android:id="@+id/tb_header"
-        layout="@layout/titlebar" />
+        layout="@layout/header" />
 
     <!-- 内容 -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

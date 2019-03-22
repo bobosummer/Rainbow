@@ -28,4 +28,5 @@
         <item name="android:padding">10dp</item>
         <item name="android:textColor">#5d5d5d</item>
     </style>
+
 </resources>
