@@ -12,6 +12,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.RelativeLayout;
 
 import com.xt.mac.rainbow.R;
+import com.xt.mac.rainbow.login.login.LoginActivity;
 import com.xt.mac.rainbow.login.login.LoginPager;
 import com.xt.mac.rainbow.utils.CacheUtils;
 
@@ -69,7 +70,8 @@ public class SplashActivity extends Activity {
             }
             else {
                 // 进入登录页面
-                intent = new Intent(SplashActivity.this, LoginPager.class);
+                // 注意 ： 这两个参数都必须是Activity ，不然无法运行startActivity();
+                intent = new Intent(SplashActivity.this, LoginActivity.class);
             }
 
             startActivity(intent);
