@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sbg1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99FF00"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textColor="#009933"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:text="淮阴区彩虹少年以及未成年人权益保护网络平台" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/wtfy1"
+            android:text="问题反映"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/xxysq1"
+            android:text="信息员申请"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/wtfk"
+            android:text="问题反馈"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/wjjdalsl"
+            android:text="掌上基地"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/gahd"
+            android:text="关爱活动"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/wdga"
+            android:text="我的关爱"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/garyqd"
+            android:text="关爱人员签到"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/chsnxxlr"
+            android:text="彩虹少年录入"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/gazlsc"
+            android:text="关爱资料上传"
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</LinearLayout>
