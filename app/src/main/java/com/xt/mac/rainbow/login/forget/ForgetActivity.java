@@ -1,7 +1,5 @@
-package com.xt.mac.rainbow.login.login;
+package com.xt.mac.rainbow.login.forget;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +13,8 @@ import com.google.gson.Gson;
 import com.xt.mac.rainbow.R;
 import com.xt.mac.rainbow.app.MainActivity;
 import com.xt.mac.rainbow.app.RainbowApplication;
-import com.xt.mac.rainbow.app.SplashActivity;
+import com.xt.mac.rainbow.login.forget.bean.ForgetBean;
+import com.xt.mac.rainbow.login.login.LoginActivity;
 import com.xt.mac.rainbow.login.login.bean.LoginBean;
 import com.xt.mac.rainbow.utils.CacheUtils;
 import com.xt.mac.rainbow.utils.Constants;
@@ -24,37 +23,46 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
 
-public class LoginActivity extends Activity {
+public class ForgetActivity extends AppCompatActivity {
 
-    private static final String TAG = LoginPager.class.getSimpleName();
-    private EditText ll_username;
-    private EditText ll_password;
-    private Button btn_login;
+    private static final String TAG = ForgetActivity.class.getSimpleName();
+    private EditText oldPwd;
+    private EditText newPwd;
+    private EditText newPwd2;
+    private Button sureBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_forget);
 
-        // 注意： android.widget.LinearLayout cannot be cast to android.widget.EditText 说明 id对应的view写错了，不是EditView
-        ll_username = findViewById(R.id.et_username);
-        ll_password = findViewById(R.id.et_password);
-        btn_login = findViewById(R.id.btn_login);
+        initView();
+    }
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
+    private void initView() {
+        oldPwd = findViewById(R.id.et_oldpassword);
+        newPwd = findViewById(R.id.et_newpassword);
+        newPwd2 = findViewById(R.id.et_newpassword2);
+        sureBtn = findViewById(R.id.btn_sure);
+
+        sureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 请求网络
-                getDataFromNet();
+                if (newPwd.getText().equals(newPwd2.getText())) {
+                    getDataFromNet();
+                }
+                else  {
+                    Toast.makeText(ForgetActivity.this, "新密码与确认密码不一致！", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     /*
-    * 请求网络
-    * */
+     * 请求网络
+     * */
     private void getDataFromNet() {
-        String url = Constants.get_queryloginApp + "?userName=" + ll_username.getText() + "&password=" + ll_password.getText();
+        String url = Constants.get_queryupdatePwdApp + "?appUserId=" + RainbowApplication.getInstance().getUserID() + "&oldPwd=" + oldPwd.getText() + "&newPwd=" + newPwd.getText();
         OkHttpUtils
                 .get()
                 .url(url)
@@ -84,24 +92,19 @@ public class LoginActivity extends Activity {
                         processData(response);
                     }
 
-
                 });
     }
 
     /*
-    * 解析数据
-    * */
+     * 解析数据
+     * */
     private void processData(String json) {
-        LoginBean bean = parsedJson(json);
+        ForgetBean bean = parsedJson(json);
         if(bean != null){
             // 注意：不能用 == 要用equals
             if (bean.getRespCode().equals("success")) {
-                setUserInfo(bean);
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
-                Toast.makeText(this, "登录成功！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, bean.getRespMsg(), Toast.LENGTH_SHORT).show();
 
             }
             else {
@@ -116,19 +119,9 @@ public class LoginActivity extends Activity {
     /*
      * 解析json数据
      * */
-    private LoginBean parsedJson(String json) {
+    private ForgetBean parsedJson(String json) {
         Gson gson = new Gson();
-        LoginBean bean = gson.fromJson(json, LoginBean.class);
+        ForgetBean bean = gson.fromJson(json, ForgetBean.class);
         return bean;
-    }
-
-    /*
-    * 存储用户信息
-    * */
-    private void setUserInfo(LoginBean bean) {
-        // 存用户信息
-        String uid = String.valueOf(bean.getContent().getId());
-        CacheUtils.saveString(this, "uidKey", uid);
-        RainbowApplication.getInstance().setUserID(uid);
     }
 }

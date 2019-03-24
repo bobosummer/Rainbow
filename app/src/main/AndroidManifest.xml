@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".app.MainActivity" />
         <activity android:name=".login.login.LoginActivity" />
+        <activity android:name=".login.forget.ForgetActivity"></activity>
     </application>
 
 </manifest>
